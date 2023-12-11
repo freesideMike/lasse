@@ -14,6 +14,16 @@
   -webkit-text-size-adjust: 100%;
 }
 
+.page {
+  height: 100vh;
+}
+
+#bigImage {
+  height: 50vh;
+  margin: 3rem;
+  border-radius: 12px;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
