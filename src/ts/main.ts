@@ -21,6 +21,7 @@ searchDrink.addEventListener("submit", async (e) => {
     "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=" +
     drinkToSearchFor;
   const drinkdata = await get(url);
+  console.log(drinkdata);
   console.log(drinkdata.drinks);
   createHTML(drinkdata.drinks);
 });
@@ -54,41 +55,57 @@ const drinkInstructions = document.createElement("p");
     drinkCard.appendChild(drinkTitle);
     drinkCard.appendChild(drinkImg);
     drinkContainer.appendChild(drinkCard);
-  }
+    
+    drinkCard.addEventListener("click", () => {
+    showBigImage(drinkdata[i]);
+    });
+}
 }
 
-/* idDrink: string;
-    strDrink: string;
-    strIngredient1:string;
-    strIngredient2:string;
-    strIngredient3:string;
-    strIngredient4:string;
-    strIngredient5:string;
-    strGlass: string;
-    strInstructions:string;
-    strDrinkThumb:string; */
 
 
+//  last page   // last page   //  last page   // last page   //  last page   // last page   
+const lastSection = document.getElementById("lastsection");
+const showBigImage = ((data: Idrink) => {
+    lastSection.innerHTML = "";
+    const imgUrl = data.strDrinkThumb;
+    const drinkName = data.strDrink;
+    const glass = data.strGlass;
+    const description = data.strInstructions;
+    
+    const ingridients = [data.strIngredient1, data.strIngredient2, data.strIngredient3, data.strIngredient4, data.strIngredient5, data.strIngredient6, data.strIngredient7, data.strIngredient8, data.strIngredient9, data.strIngredient10, data.strIngredient11, data.strIngredient12, data.strIngredient13, data.strIngredient14, data.strIngredient15]
 
-const lastSection = document.getElementById("lastsection")
-const imgUrl = "https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg";    //strDrinkThumb[i]
-const image = document.createElement("img");
-const drinkNameHeading = document.createElement("h3");
-const licourHeading = document.createElement("h4");
-const drinkInstructions = document.createElement("p");
 
-
-image.id = "bigImage";
-
-image.src = imgUrl;    
-image.alt = "Margarita";    //strDrink[i]
-
-drinkNameHeading.innerHTML = "Margarita";    //strDrink[i]
-licourHeading.innerHTML = "Gin";   //ingridient[i]
-drinkInstructions.innerHTML = "Lorem ipsum dolor sit amet, ut nibh splendide qui, qui brute civibus id. Per no erant oporteat adolescens, ei liber graecis noluisse mel. Nam nulla movet imperdiet id, modus quaestio te vis. Sed ei laudem suscipit partiendo, quis justo philosophia ut pri, sit te oblique philosophia concludaturque.";
-
-lastSection?.appendChild(image);
-lastSection?.appendChild(drinkNameHeading);
-lastSection?.appendChild(licourHeading);
-lastSection?.appendChild(drinkInstructions);
-
+    const image = document.createElement("img");
+    const drinkNameHeading = document.createElement("h3");
+    const glassHeading = document.createElement("h4");
+    const drinkInstructions = document.createElement("p");
+    const ingridientsList = document.createElement("ul");
+    
+    
+    
+    image.id = "bigImage";
+    
+    image.src = imgUrl;    
+    image.alt = drinkName;  
+    
+    drinkNameHeading.innerHTML = drinkName;
+    glassHeading.innerHTML = glass;
+    drinkInstructions.innerHTML = description;
+    console.log("skapar bigImage");
+    
+ 
+    lastSection?.appendChild(image);
+    lastSection?.appendChild(drinkNameHeading);
+    lastSection?.appendChild(glassHeading);
+    lastSection?.appendChild(ingridientsList);
+    lastSection?.appendChild(drinkInstructions);
+    for (let i=0; i<ingridients.length; i++){
+        if(ingridients[i]!==null) {
+            const ingridientItem = document.createElement("li");
+            ingridientItem.innerHTML = ingridients[i];
+            ingridientsList.appendChild(ingridientItem);
+        }    
+   }
+        
+});
