@@ -36,6 +36,42 @@ h1 {
   line-height: 1.1;
 }
 
+#hero-section {
+  background-image: url(https://www.hennessy.com/sites/hennessy/files/styles/landscape_2880x1540/public/2020-01/HEADER_COCKTAIL_2880x1540.jpg?itok=VsbKHGEI);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+}
+#hero-title {
+  font-size: 5em;
+  line-height: 1.1;
+  color: white;
+  padding: 20px;
+}
+
+#hero-info {
+  font-size: 2em;
+  color: white;
+  padding: 5px;
+}
+
+#top-nav ul, li, a {
+  list-style: none;
+  color: white;
+  
+  padding: 10px;
+  font-size: 1.2em;
+}
+
+#top-nav li {
+  border: 2px solid white;
+  border-radius: 12px;
+  margin: 10px;
+}
+
+
 #app {
   max-width: 1280px;
   margin: 0 auto;
@@ -88,8 +124,9 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
+a:hover {
     color: #747bff;
+    
   }
   button {
     background-color: #f9f9f9;
