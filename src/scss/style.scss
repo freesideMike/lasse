@@ -100,7 +100,14 @@ h1 {
   font-size: 1.2em;
 }
 
-
+#alphabet {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
 
 
 #app {
