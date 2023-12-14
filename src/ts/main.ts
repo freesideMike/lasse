@@ -24,6 +24,7 @@ searchDrink.addEventListener("submit", async (e) => {
   console.log(drinkdata);
   console.log(drinkdata.drinks);
   createHTML(drinkdata.drinks);
+
 });
 
 const drinkContainer = document.getElementById(
@@ -32,9 +33,9 @@ const drinkContainer = document.getElementById(
 
 function createHTML(drinkdata: Idrink[]) {
   console.log("hej");
-  for (let i = 0; i < drinkdata.length; i++) {
+  drinkContainer.innerHTML = "";
+  for (let i = 0; i < 9; i++) {
     console.log("hejsan");
-
     const drinkCard = document.createElement("div");
     //const drinkID = document.createElement("p");
     const drinkTitle = document.createElement("h2");
@@ -51,6 +52,7 @@ const drinkInstructions = document.createElement("p");
     drinkImg.src = drinkdata[i].strDrinkThumb;
     drinkImg.className = "drinkImg";
     drinkCard.className = "drinkCard";
+    drinkTitle.className = "drinkTitle";
 
     drinkCard.appendChild(drinkTitle);
     drinkCard.appendChild(drinkImg);
@@ -58,6 +60,7 @@ const drinkInstructions = document.createElement("p");
     
     drinkCard.addEventListener("click", () => {
     showBigImage(drinkdata[i]);
+    /// läg in att vi ska flytta till sista sidan när man klickar på en drinkbild, det blir väl en href eller nåt sånt här då.
     });
 }
 }
