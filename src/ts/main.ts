@@ -13,22 +13,19 @@ const get = async (url: string): Promise<IDrinkResponse> => {
 
 //byter ut vanliga sökrutan mot ett alfabet man kan klicka på varje bokstav för att söka //Micke
 
-const alphabet: string = "abcdefghijklmnopqrstvyz12345679";
+const alphabet: string = "abcdefghijklmnopqrstvyz12345679";  //saknar drinkar på u, x, noll och åtta därför är de inte med i stringen
 const alphabetContainer = document.getElementById("alphabet");
+
 for(let i = 0; i<alphabet.length; i++) {
   const letter = document.createElement("li");
   letter.innerHTML = alphabet[i];
   alphabetContainer?.appendChild(letter);
-  console.log(alphabet[i]);
+
   letter.addEventListener("click", async () => {
+    lastSection.innerHTML = "";
         const drinkToSearchFor = alphabet[i];
-        console.log(alphabet[i]);
-    const url =
-      "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=" +
-      drinkToSearchFor;
+        const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=" + drinkToSearchFor;
     const drinkdata = await get(url);
-    console.log(drinkdata);
-    console.log(drinkdata.drinks);
     createHTML(drinkdata.drinks);
   });
 }
