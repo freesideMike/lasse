@@ -48,6 +48,38 @@ h1 {
   line-height: 1.1;
 }
 
+#hero-section {
+  background-image: url(https://www.hennessy.com/sites/hennessy/files/styles/landscape_2880x1540/public/2020-01/HEADER_COCKTAIL_2880x1540.jpg?itok=VsbKHGEI);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+}
+#hero-title {
+  font-size: 5em;
+  line-height: 1.1;
+  color: white;
+  padding: 20px;
+}
+
+#hero-info {
+  font-size: 2em;
+  color: white;
+  padding: 5px;
+}
+
+#top-nav ul, li, a {
+  list-style: none;
+  color: white;
+  
+  padding: 10px;
+  font-size: 1.2em;
+}
+
+
+
+
 #app {
   max-width: 1280px;
   margin: 0 auto;
@@ -77,23 +109,17 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-form{
-  display: flex;
-  flex-direction: column;
-}
-
-#searchText{
-  height: 50px;
-  border-radius: 10px;
-}
-
-.drinkCard{
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 30px;
-  margin-bottom: 30px;
-  background: white;
-  color: #242424;
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
 }
 
 .drinkImg{
